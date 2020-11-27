@@ -1,0 +1,132 @@
+
+.story {
+    background-color: rgba($color-white, .6);
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 10rem;
+    border-radius: 3px;
+    box-shadow: 0 3rem 6rem rgba($color-dark, .1);
+    font-size: $default-font-size;
+    padding: 6rem;
+    transform: skewX(-12deg);
+    z-index: 200;
+
+    @include respond (tab-port) {
+     width: 100%;
+     padding: 5rem;
+     font-size: 1.4rem;
+    }
+
+    @include respond (phone) {
+        width: 100%;
+        padding: 5rem;
+        transform: skewX(0);
+   
+       }
+    
+
+
+    &__text {
+        transform:translateX(1rem) skewX(12deg);
+
+        @include respond (tab-port) {
+            transform:translateX(2.5rem) skewX(12deg);
+           }
+      
+           @include respond (phone) {
+           transform: translateX(3rem) skewX(0);
+       
+           }       
+    }
+ 
+ &__shape {
+
+    float: left;
+    height: 15rem;
+    position: relative;
+    overflow: hidden;
+    width: 15rem;
+    border-radius: 50%;
+    transform: skewX(12deg);
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    
+    @supports ((-webkit-clip-path: circle(0 0)) or (clip-path: circle(0 0))) {
+
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%); 
+         border-radius: none; 
+    }
+
+
+    @include respond (phone) {
+     transform: skewX(0);
+       }  
+
+ }
+
+    &__img {
+        height: 100%;
+        transform: translateX(-4rem) scale(1.04);
+        transition: all .4s;
+        -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+
+                @include respond (tab-port) {
+     
+               
+                   }             
+       
+    }
+    
+
+
+   &__caption {
+       color: $color-white;
+       text-transform: uppercase;
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-40%, 20%);
+       opacity: 0;
+       transition: all .3s;
+       text-align:center;
+       font-size: 1.7rem;
+   }
+
+   &:hover &__caption {
+       opacity: 1;
+       transform: translate(-50%, -50%);
+   }
+   &:hover &__img {
+       transform: translateX(-4rem) scale(1);
+  -webkit-filter: blur(3px) brightness(80%);
+          filter: blur(3px) brightness(80%);
+
+}
+}
+
+
+.bg-video {
+    width:100%;
+    height: 100%;
+    z-index: -1;
+    opacity: .15;
+  position: absolute;
+    top:0;
+    left:0;
+    overflow: hidden;
+    
+
+
+    &__content {
+  -o-object-fit: cover;
+       object-fit: cover;
+    }
+
+
+}
+
+

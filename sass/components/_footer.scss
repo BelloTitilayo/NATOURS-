@@ -1,0 +1,73 @@
+  
+
+  .footer {
+        padding: 8rem;
+        background-color: rgba($color-dark, 0.8);
+      font-size: 1.4rem;
+      color: $color-grey-dark;
+
+      @include respond (tab-port) {
+          padding: 8rem;
+      }
+      
+      @include respond (phone) {
+          padding: 8rem;
+      }
+
+
+    &__logo-box {
+        text-align: center;
+        margin-bottom: 6rem;
+
+        @include respond (tab-port)   {
+            margin-bottom: 5rem;
+            }
+
+    }
+    &__logo-img {
+        width: 15rem;
+        height: auto; 
+
+        @include respond (phone)   {
+            width: 18rem;
+            height: auto;
+            }    
+    }
+
+    &__navigation {
+        border-top: 1px solid $color-grey-dark;
+        list-style: none;
+        padding: 10px;  
+        display: inline-block;
+    }
+
+    &__footer-list {
+        list-style: none;
+    }
+
+    &__item {
+        display: inline-block;
+
+         &:not(:last-child) {
+   margin-right: 2rem;
+         }
+    }
+
+    &__link {
+
+        &:link,
+        &:visited  {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $color-white; 
+        display: inline-block;
+        }
+        
+        &:hover,
+        &:active {
+            box-shadow: 0 1rem 2rem rgba($color-dark, .4);
+            color: $color-primary;
+            transform: rotate(4deg) scale(1.3);
+        }
+    }
+  }

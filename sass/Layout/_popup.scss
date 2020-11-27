@@ -1,0 +1,153 @@
+
+
+ .popup {
+    background-color: rgba($color-dark, .8);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 8000;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s;
+
+ @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+        background-color: rgba($color-dark, .3); 
+            -webkit-backdrop-filter: blur(10px) ; 
+                    backdrop-filter: blur(10px) ;
+    }
+
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__content {
+     background-color: $color-white;
+        position: absolute;
+        width: 75%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%) scale(.25);
+        display: table;
+        border-radius: 2px;
+        overflow: hidden;
+        box-shadow: 0 2rem 3rem rgba($color-dark, .7);
+        opacity: 0;
+        transition: all .3s 1s;
+
+        @include respond (tab-port) {
+            width: 80%;
+        }
+    @include respond (phone)    {
+        width: 95%;
+    }
+
+    }
+    
+
+    &__left {
+        width: 33%;
+        display: table-cell;
+
+        
+    }
+
+    &__right {
+        width:67%;
+        display: table-cell;
+    vertical-align: middle;
+    padding: 3rem 4rem;
+
+    @include respond (tab-port){
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+        padding-left: 2.8rem;
+        padding-right: 2.8rem;    
+    }
+    @include respond (phone){
+        padding-top: .4rem !important;
+        padding-bottom: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+
+    }
+
+    &__img {
+        width: 100%; 
+        display: block;
+
+        &:not(:first-child) {
+            margin-top: -.8rem;
+        }
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+        -moz-column-count: 2;
+             column-count: 2;
+        -moz-column-gap: 2rem;
+             column-gap: 2rem;
+             -moz-column-rule: 1px solid #333;
+                  column-rule: 1px solid #333;
+             -webkit-hyphens: auto;
+                 -ms-hyphens: auto;
+                     -webkit-hyphens: auto;
+                         hyphens: auto;
+
+       @include respond (tab-port)   {
+           margin-bottom: 1rem;
+           -moz-column-count: 1;
+           column-count: 1;
+       -moz-column-gap: none;
+            column-gap: none;
+       -webkit-hyphens: none;
+           -ms-hyphens: none;
+               hyphens: none;       
+       }    
+       
+       @include respond (phone)   {
+     -moz-column-count: 1;
+          column-count: 1;
+      -moz-column-gap: none;
+           column-gap: none;
+      -webkit-hyphens: none;
+          -ms-hyphens: none;
+              hyphens: none;
+              margin-bottom: .3rem;
+    }          
+
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+            position: absolute;
+            top: 3rem;
+            right: 3rem;
+            color:#333;
+            display: inline-block;
+            text-decoration: none;
+            line-height: 1;
+            font-size: 3rem;
+            transition: all .2s;
+            @include respond (phone) {
+                top: 1rem;
+                right: 1.8rem;
+            }
+        }
+
+        &:hover,
+        &:active {
+            color: $color-primary;
+        }
+    }
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(1);   
+    }
+ }

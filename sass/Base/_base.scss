@@ -1,0 +1,41 @@
+
+
+* ,
+*::after,
+*::before {
+    margin:0;
+    padding: 0;
+    box-sizing:inherit;
+}   
+
+// This defines what 1rem should be:
+  html {
+    
+font-size: 62.5%;           //10px
+
+  @include respond (tab-land) {
+    font-size: 56.25%;
+  }                         //9px
+
+  @include respond (tab-port) {
+    font-size: 50%;         
+  }                         //8px
+
+ // @include respond (phone) {
+  // font-size: 46.875%;
+  //}                         //7.5px
+
+  @include respond (big-desktop) {
+    font-size: 75%;
+  }                         //12px
+
+
+
+
+    
+}
+
+body {
+    box-sizing: border-box;
+}
+
